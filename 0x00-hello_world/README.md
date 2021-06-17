@@ -1,0 +1,1 @@
+We are going to start with the basic gcc commands
