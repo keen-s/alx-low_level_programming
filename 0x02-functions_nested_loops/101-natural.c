@@ -84,35 +84,33 @@ void putnchar(int num)
 	}
 
 }
-
 /**
- * print_times_table - print multiplication table for factor of n
- * @n: integer n
+ * sumr - returns the sum of numbers from start to end with step steps
+ * @start: the first number
+ * @end: the last number
+ *@step:the number of  steps
+ * Return: sum
  */
-void print_times_table(int n)
+int sumr(int start, int end, int step)
 {
-	int i, j, prod, m;
+	int sum = 0, i;
 
-	if (n < 16 && n >= 0)
+	for (i = start; i < end; i += step)
 	{
-		for (i = 0; i <= n; i++)
-		{
-			for (j = 0; j <= n; j++)
-			{
-				prod = i * j;
-				putnchar(prod);
-				if (j != n)
-				{
-					_putchar(',');
-
-					for (m = 0; m < 4 - numLength(i * (j + 1)); m++)
-					{
-						_putchar(' ');
-					}
-				}
-
-			}
-			_putchar('\n');
-		}
+		sum += i;
 	}
+	return (sum);
+
+}
+/**
+ * main - prints the sum of all numbers under 1024
+ * that are divisible by 3 or 5
+ * Return: 0
+ */
+int main(void)
+{
+
+	putnchar(sumr(3, 1024, 3) + sumr(5, 1024, 5) - sumr(15, 1024, 15));
+	_putchar('\n');
+	return (0);
 }
